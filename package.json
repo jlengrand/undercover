@@ -19,22 +19,22 @@
     "start": "owc-dev-server --open"
   },
   "devDependencies": {
-    "@open-wc/eslint-config": "^0.4.1",
-    "@open-wc/prettier-config": "^0.1.0",
     "@commitlint/cli": "^7.0.0",
     "@commitlint/config-conventional": "^7.0.0",
+    "@open-wc/building-rollup": "^0.3.0",
+    "@open-wc/eslint-config": "^0.4.1",
+    "@open-wc/prettier-config": "^0.1.0",
+    "@open-wc/testing": "^0.11.1",
+    "@open-wc/testing-karma": "^2.0.0",
+    "@open-wc/testing-karma-bs": "^1.0.0",
+    "eslint-plugin-lit": "^1.0.0",
+    "http-server": "^0.11.1",
     "husky": "^1.0.0",
     "lint-staged": "^8.0.0",
-    "@open-wc/testing-karma": "^2.0.0",
-    "webpack-merge": "^4.1.5",
-    "@open-wc/testing-karma-bs": "^1.0.0",
-    "@open-wc/testing": "^0.11.1",
-    "@open-wc/building-rollup": "^0.3.0",
-    "http-server": "^0.11.1",
+    "owc-dev-server": "^0.3.0",
     "rimraf": "^2.6.3",
     "rollup": "^1.6.0",
-    "owc-dev-server": "^0.3.0",
-    "eslint-plugin-lit": "^1.0.0"
+    "webpack-merge": "^4.1.5"
   },
   "lint-staged": {
     "*.js": [
@@ -46,7 +46,8 @@
   "name": "under-cover",
   "license": "MIT",
   "dependencies": {
-    "lit-html": "^1.0.0",
-    "lit-element": "^2.0.1"
+    "firebase": "^6.2.0",
+    "lit-element": "^2.0.1",
+    "lit-html": "^1.0.0"
   }
 }

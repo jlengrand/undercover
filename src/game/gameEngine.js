@@ -1,6 +1,6 @@
 import { combineReducers, createStore } from 'redux';
 import gamesReducers from './gamesReducer';
-import { stopGame } from './gameActions';
+import { stopGame, createGame } from './gameActions';
 
 const initialState = {
   user: undefined,
@@ -19,6 +19,7 @@ const store = createStore(
 
 console.log(store.getState());
 const unsubscribe = store.subscribe(() => console.log(store.getState()));
+store.dispatch(createGame(['Paul', 'Bob', 'Maurice']));
 store.dispatch(stopGame());
 
 unsubscribe();

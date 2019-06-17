@@ -1,0 +1,219 @@
+[
+  {
+    "description": "Faire boire un Kalimotxo (50%vin rouge, 50% coca) à votre victime, elle doit en boire au moins 2 gorgées.",
+    "id": "9e5cf740-9010-11e9-9842-676188dfcc6d"
+  },
+  {
+    "description": "Faire manger une tranche de citron au ketchup à votre victime, elle doit au moins mordre dedans 1 fois.",
+    "id": "9e5cf741-9010-11e9-9842-676188dfcc6d"
+  },
+  {
+    "description": "Faire manger une pomme au ketchup à votre victime, elle doit au moins mordre dedans 1 fois.",
+    "id": "9e5cf742-9010-11e9-9842-676188dfcc6d"
+  },
+  {
+    "description": "Parvenir à faire chorégraphier la danse de La Macarena.",
+    "id": "9e5cf743-9010-11e9-9842-676188dfcc6d"
+  },
+  {
+    "description": "Parvenir à faire dessiner un plan ou un croquis quelconque.",
+    "id": "9e5cf744-9010-11e9-9842-676188dfcc6d"
+  },
+  {
+    "description": "Réussir à faire faire au moins trois jongles avec un ballon, une chaussette ou tout autre objets.",
+    "id": "9e5cf745-9010-11e9-9842-676188dfcc6d"
+  },
+  {
+    "description": "Contraindre la victime à changer de place au moins 2 fois au cours du repas.",
+    "id": "9e5cf746-9010-11e9-9842-676188dfcc6d"
+  },
+  {
+    "description": "Observer la victime entrain de ranger un objet que vous avez vous même désordonné.",
+    "id": "9e5cf747-9010-11e9-9842-676188dfcc6d"
+  },
+  {
+    "description": "Seule ou parmi une assemblée, votre victime devra faire une 'ola'.",
+    "id": "9e5cf748-9010-11e9-9842-676188dfcc6d"
+  },
+  {
+    "description": "Obtenir la signature de la victime en employant tous les moyens à l’exception de la force.",
+    "id": "9e5cf749-9010-11e9-9842-676188dfcc6d"
+  },
+  {
+    "description": "Faire exécuter les pas d’un madison ou d’un Kuduro.",
+    "id": "9e5cf74a-9010-11e9-9842-676188dfcc6d"
+  },
+  {
+    "description": "Faire un selfie avec votre victime. Si elle accepte, c’est dead pour elle!",
+    "id": "9e5cf74b-9010-11e9-9842-676188dfcc6d"
+  },
+  {
+    "description": "Ta victime devra partager son verre ou son plat avec toi. Elle est hors-jeu si c’est elle qui porte son verre, ou sa cuillère jusque ta bouche.",
+    "id": "9e5cf74c-9010-11e9-9842-676188dfcc6d"
+  },
+  {
+    "description": "Parvenir à faire prononcer la phrase “Danse des Canard”.",
+    "id": "9e5cf74d-9010-11e9-9842-676188dfcc6d"
+  },
+  { "description": "Faire chanter la Marseillaise.", "id": "9e5cf74e-9010-11e9-9842-676188dfcc6d" },
+  {
+    "description": "Réussir à faire parler en anglais, en espagnol ou en allemand pendant au moins 1 minute.",
+    "id": "9e5cf74f-9010-11e9-9842-676188dfcc6d"
+  },
+  {
+    "description": "Tenir une discussion d’au moins 5 mn sur les rois de France.",
+    "id": "9e5cf750-9010-11e9-9842-676188dfcc6d"
+  },
+  {
+    "description": "Ta victime prononce au moins 2 fois le mot Paris Saint Germain? elle est Killed!",
+    "id": "9e5cf751-9010-11e9-9842-676188dfcc6d"
+  },
+  {
+    "description": "Si la victime rigole réellement à une de tes histoire drôle, elle est hors-jeu (un sourire courtois ne compte, pas).",
+    "id": "9e5cf752-9010-11e9-9842-676188dfcc6d"
+  },
+  {
+    "description": "Si ta victime te fais au moins 2 compliments au cours de la journée/soirée, elle est éliminée.",
+    "id": "9e5cf753-9010-11e9-9842-676188dfcc6d"
+  },
+  {
+    "description": "Réussir à lui faire finir au moins 5 de tes phrases.",
+    "id": "9e5cf754-9010-11e9-9842-676188dfcc6d"
+  },
+  {
+    "description": "Réussir à faire dire à votre victime qu’elle n’est pas une tricheuse.",
+    "id": "9e5cf755-9010-11e9-9842-676188dfcc6d"
+  },
+  {
+    "description": "Coller un dessin ou un message sur le dos de votre victime, si elle ne s’en aperçoit pas pendant plus de 10mn, elle est killed!",
+    "id": "9e5cf756-9010-11e9-9842-676188dfcc6d"
+  },
+  {
+    "description": "Parvenir à faire s’assoir votre victime sur un linge mouillé tel que: une éponge, une serviette ...",
+    "id": "9e5cf757-9010-11e9-9842-676188dfcc6d"
+  },
+  {
+    "description": "Mettre un objet dans la poche de votre victime sans qu’elle s’en aperçoive.",
+    "id": "9e5cf758-9010-11e9-9842-676188dfcc6d"
+  },
+  {
+    "description": "Appeler sa victime par un autre prénom que le sien, sans qu’elle ne te reprenne.",
+    "id": "9e5cf759-9010-11e9-9842-676188dfcc6d"
+  },
+  {
+    "description": "Lui faire faire 3 fois le tour de la même table en moins de 5 mn.",
+    "id": "9e5cf75a-9010-11e9-9842-676188dfcc6d"
+  },
+  {
+    "description": "La faire chanter en prenant un objet comme guise de micro.",
+    "id": "9e5cf75b-9010-11e9-9842-676188dfcc6d"
+  },
+  {
+    "description": "Faire un tatouage (pas forcement réel ;-).",
+    "id": "9e5cf75c-9010-11e9-9842-676188dfcc6d"
+  },
+  {
+    "description": "Danser un slow avec votre victime",
+    "id": "9e5cf75d-9010-11e9-9842-676188dfcc6d"
+  },
+  {
+    "description": "Lui faire faire un dessin représentant un ours dans une baignoire.",
+    "id": "9e5cf75e-9010-11e9-9842-676188dfcc6d"
+  },
+  {
+    "description": "Faire marcher une dizaine de mètres avec un objet en équilibre sur la tête sans le faire tomber",
+    "id": "9e5cf75f-9010-11e9-9842-676188dfcc6d"
+  },
+  { "description": "Jouer avec elle à la marelle.", "id": "9e5cf760-9010-11e9-9842-676188dfcc6d" },
+  {
+    "description": "Faire imiter la gestuelle d'un elephant.",
+    "id": "9e5cf761-9010-11e9-9842-676188dfcc6d"
+  },
+  {
+    "description": "Faire imiter la gestuelle d'un félin.",
+    "id": "9e5cf762-9010-11e9-9842-676188dfcc6d"
+  },
+  {
+    "description": "Faire imiter la gestuelle d'une poule.",
+    "id": "9e5cf763-9010-11e9-9842-676188dfcc6d"
+  },
+  {
+    "description": "Mettre un objet dans sa poche sans qu'elle s'en aperçoive.",
+    "id": "9e5cf764-9010-11e9-9842-676188dfcc6d"
+  },
+  {
+    "description": "Faire imiter la gestuelle d'une sorcière.",
+    "id": "9e5cf765-9010-11e9-9842-676188dfcc6d"
+  },
+  {
+    "description": "Faire en sorte qu'elle tienne un balai en équilibre sur sa main pendant au moins quinze secondes.",
+    "id": "9e5cf766-9010-11e9-9842-676188dfcc6d"
+  },
+  {
+    "description": "Lui faire porter ton verre pendant que tu lui parles.",
+    "id": "9e5cf767-9010-11e9-9842-676188dfcc6d"
+  },
+  {
+    "description": "Il ou elle doit te montrer une photo de lui/elle plus jeune (permis de conduire,...).",
+    "id": "9e5cf768-9010-11e9-9842-676188dfcc6d"
+  },
+  { "description": "Lui faire révéler sa mission.", "id": "9e5cf769-9010-11e9-9842-676188dfcc6d" },
+  { "description": "L'aider à réussir sa mission.", "id": "9e5cf76a-9010-11e9-9842-676188dfcc6d" },
+  { "description": "Boire dans son verre.", "id": "9e5cf76b-9010-11e9-9842-676188dfcc6d" },
+  { "description": "Faire un Chifoumi.", "id": "9e5cf76c-9010-11e9-9842-676188dfcc6d" },
+  { "description": "Faire un combat de pouce.", "id": "9e5cf76d-9010-11e9-9842-676188dfcc6d" },
+  { "description": "Lui faire porter un toast.", "id": "9e5cf76e-9010-11e9-9842-676188dfcc6d" },
+  {
+    "description": "Faire répéter la personne 3 fois de suite.",
+    "id": "9e5cf76f-9010-11e9-9842-676188dfcc6d"
+  },
+  {
+    "description": "Lui faire boire son verre cul sec.",
+    "id": "9e5cf770-9010-11e9-9842-676188dfcc6d"
+  },
+  {
+    "description": "Le convaincre de se déguiser pour une photo.",
+    "id": "9e5cf771-9010-11e9-9842-676188dfcc6d"
+  },
+  {
+    "description": "Il doit finir une de tes phrases.",
+    "id": "9e5cf772-9010-11e9-9842-676188dfcc6d"
+  },
+  {
+    "description": "Lui attacher ses chaussures entre elles avec ses lassets a ses pieds.",
+    "id": "9e5cf773-9010-11e9-9842-676188dfcc6d"
+  },
+  {
+    "description": "Lui faire chanter une chanson de dessin animé.",
+    "id": "9e5cf774-9010-11e9-9842-676188dfcc6d"
+  },
+  { "description": "Le ou la faire jongler.", "id": "9e5cf775-9010-11e9-9842-676188dfcc6d" },
+  {
+    "description": "Tu dois échanger un vetement avec lui/elle et que vous le portiez tous les 2 au moins 10 minutes ",
+    "id": "9e5cf776-9010-11e9-9842-676188dfcc6d"
+  },
+  {
+    "description": "Demander à emprunter un vêtement à la cible.",
+    "id": "9e5cf777-9010-11e9-9842-676188dfcc6d"
+  },
+  {
+    "description": "Jouer à “Je te tiens par la barbichette”.",
+    "id": "9e5cf778-9010-11e9-9842-676188dfcc6d"
+  },
+  {
+    "description": "Toucher le bout du nez de la cible.",
+    "id": "9e5cf779-9010-11e9-9842-676188dfcc6d"
+  },
+  {
+    "description": "Il faut que vous soyez tous les deux sous une table en même temps.",
+    "id": "9e5d4560-9010-11e9-9842-676188dfcc6d"
+  },
+  {
+    "description": "Tu dois lui faire chanter une souris verte.",
+    "id": "9e5d4561-9010-11e9-9842-676188dfcc6d"
+  },
+  {
+    "description": "Tu dois te débrouiller pour qu’elle boive de l’eau dans une assiette.",
+    "id": "9e5d4562-9010-11e9-9842-676188dfcc6d"
+  }
+]

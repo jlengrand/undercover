@@ -1,6 +1,8 @@
 // TODO : Not immutable. Fix warnings later
-export function shuffle(array) {
-  const currentIndex = array.length;
+export function shuffle(inputArray) {
+  const array = [...inputArray];
+
+  let currentIndex = array.length;
   let temporaryValue;
   let randomIndex;
 

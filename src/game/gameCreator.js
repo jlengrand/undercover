@@ -24,7 +24,7 @@ function createPlayer(user) {
   return {
     id: uuid(),
     user,
-    mission: createMission(),
+    missions: [createMission()],
   };
 }
 

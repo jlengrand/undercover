@@ -9,7 +9,12 @@ function validateChallenges(challenges) {
 }
 
 function validateMissions(players) {
-  const missions = players.map(p => p.mission);
+  const missionArrays = players.map(p => p.missions);
+  missionArrays.forEach(ma => {
+    expect(ma).to.have.lengthOf(1);
+  });
+
+  const missions = players.map(p => p.missions[0]);
   expect(arrayHasDuplicateValue(missions, 'id')).to.be.false;
 
   missions.forEach(m => {
@@ -41,7 +46,7 @@ describe('gameCreator createGame', () => {
     expect(game.id).to.not.be.undefined;
   });
 
-  it('should return a list of players', () => {
+  it('should return a list of players with missions', () => {
     const game = createGame(['Bob', 'Gerald', 'Daisy']);
     expect(game.players).to.have.lengthOf(3);
     validatePlayers(game.players);

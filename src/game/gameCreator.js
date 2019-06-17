@@ -8,7 +8,7 @@ function createMission() {
     id: uuid(),
     challenge: getRandomChallenge(),
     status: MissionStatuses.ACTIVE,
-    targetId: undefined, // TODO
+    targetId: 'plop', // TODO
   };
 }
 

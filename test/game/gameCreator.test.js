@@ -50,5 +50,22 @@ describe('gameCreator createGame', () => {
     const game = createGame(['Bob', 'Gerald', 'Daisy']);
     expect(game.players).to.have.lengthOf(3);
     validatePlayers(game.players);
+
+    // Make sure each player has a mission with a target that exists and is not him
+    const playerIds = game.players.map(p => p.id);
+    const playerIdAndTargetIds = game.players.map(player => ({
+      id: player.id,
+      targetId: player.missions[0].targetId,
+      allIds: playerIds,
+    }));
+
+    playerIdAndTargetIds.forEach(idAndTargetId => {
+      // There is a known target
+      expect(idAndTargetId.targetId).to.not.be.undefined;
+      // Mission never targets the player
+      expect(idAndTargetId.id).to.not.equal(idAndTargetId.targetId);
+      // Mission targets another existing player
+      expect(idAndTargetId.allIds.includes(idAndTargetId.targetId)).to.be.true;
+    });
   });
 });

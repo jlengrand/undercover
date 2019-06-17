@@ -99,5 +99,20 @@ export function validateMission(state, missionId) {
     }
   }
 
+  // Check if game is finished.
+  const finalMissions = state.players.map(p => p.missions);
+  const flattenedFinalMissions = finalMissions.reduce(
+    (total, currentValue) => total.concat(currentValue),
+    [],
+  );
+
+  const numberActiveMissions = flattenedFinalMissions.filter(
+    m => m.status === MissionStatuses.ACTIVE,
+  ).length;
+
+  if (numberActiveMissions === 1) {
+    newState.status = GameStatuses.FINISHED;
+  }
+
   return newState;
 }

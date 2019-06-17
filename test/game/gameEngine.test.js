@@ -71,7 +71,7 @@ describe('gameCreator createGame', () => {
 });
 
 describe('gameEngine validateMission', () => {
-  const theStartingState = {
+  const theStartingState3Players = {
     id: 'd9de47a8-158f-455e-8f02-21ac5dd5e0c3',
     players: [
       {
@@ -115,13 +115,47 @@ describe('gameEngine validateMission', () => {
     status: 'ONGOING',
   };
 
-  // it('validateMission should return the same state if there is no missionId', () => {
-  //   expect(validateMission(theStartingState)).to.deep.equal(theStartingState);
-  // });
+  const theStartingState2Players = {
+    id: 'd9de47a8-158f-455e-8f02-21ac5dd5e0c3',
+    players: [
+      {
+        id: '8717b0d5-8a1b-436a-947b-5efe94603e67',
+        user: undefined,
 
-  // it('validateMission should return the same state if no matching mission was found', () => {
-  //   expect(validateMission(theStartingState, 'unknown-id')).to.deep.equal(theStartingState);
-  // });
+        missions: [
+          {
+            challenge: undefined,
+            id: '3d656862-8bce-41ec-ad74-2b637c12ff26',
+            status: 'ACTIVE',
+            targetId: 'c594036a-511e-4977-97c2-f4e13952bbb7',
+          },
+        ],
+      },
+      {
+        id: 'c594036a-511e-4977-97c2-f4e13952bbb7',
+        user: undefined,
+        missions: [
+          {
+            challenge: undefined,
+            id: 'b1c2a17f-3834-45ea-b3dd-30633c62b197',
+            status: 'ACTIVE',
+            targetId: '8717b0d5-8a1b-436a-947b-5efe94603e67',
+          },
+        ],
+      },
+    ],
+    status: 'ONGOING',
+  };
+
+  it('validateMission should return the same state if there is no missionId', () => {
+    expect(validateMission(theStartingState3Players)).to.deep.equal(theStartingState3Players);
+  });
+
+  it('validateMission should return the same state if no matching mission was found', () => {
+    expect(validateMission(theStartingState3Players, 'unknown-id')).to.deep.equal(
+      theStartingState3Players,
+    );
+  });
 
   it('should validate a mission for a valid mission id', () => {
     const validatedMissionId = '3d656862-8bce-41ec-ad74-2b637c12ff26';
@@ -144,7 +178,7 @@ describe('gameEngine validateMission', () => {
               challenge: undefined,
               id: 'b1c2a17f-3834-45ea-b3dd-30633c62b197',
               status: 'ACTIVE',
-              targetId: '7d91288e-4808-48b6-b1ec-49ef3addb24f',
+              targetId: '8717b0d5-8a1b-436a-947b-5efe94603e67',
             },
           ],
         },
@@ -156,27 +190,15 @@ describe('gameEngine validateMission', () => {
               challenge: undefined,
               id: 'b1c2a17f-3834-45ea-b3dd-30633c62b197',
               status: 'STOLEN',
-              targetId: '7d91288e-4808-48b6-b1ec-49ef3addb24f',
-            },
-          ],
-        },
-        {
-          id: '7d91288e-4808-48b6-b1ec-49ef3addb24f',
-          user: undefined,
-          missions: [
-            {
-              id: '865faaf3-eaae-41d0-96d3-7440f1cc604e',
-              status: 'ACTIVE',
-              challenge: undefined,
               targetId: '8717b0d5-8a1b-436a-947b-5efe94603e67',
             },
           ],
         },
       ],
-      status: 'ONGOING',
+      status: 'FINISHED',
     };
 
-    expect(validateMission(theStartingState, validatedMissionId)).to.deep.equal(
+    expect(validateMission(theStartingState2Players, validatedMissionId)).to.deep.equal(
       theExpectedEndState,
     );
   });

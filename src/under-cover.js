@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit-element';
 import { openWc } from './open-wc-logo';
-import './game/gameEngine';
+import './game/gameRunner';
 
 class UnderCover extends LitElement {
   static get properties() {

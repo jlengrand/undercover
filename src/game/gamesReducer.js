@@ -1,5 +1,5 @@
-import { STOP, GameStatuses, CREATE } from './gameActions';
-import { createGame } from './gameCreator';
+import { STOP, GameStatuses, CREATE, VALIDATE } from './gameActions';
+import { createGame, validateMission } from './gameEngine';
 
 export default function gamesReducer(state = {}, action) {
   switch (action.type) {
@@ -9,6 +9,8 @@ export default function gamesReducer(state = {}, action) {
       });
     case CREATE:
       return createGame(action.users);
+    case VALIDATE:
+      return validateMission(state, action.missionId); // TODO
     default:
       return state;
   }

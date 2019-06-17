@@ -2,6 +2,7 @@
 
 export const STOP = 'STOP';
 export const CREATE = 'CREATE';
+export const VALIDATE = 'VALIDATE';
 
 export const MissionStatuses = {
   ACTIVE: 'ACTIVE',
@@ -24,4 +25,8 @@ export function stopGame() {
 
 export function createGame(listUsers) {
   return { type: CREATE, users: listUsers };
+}
+
+export function validateMission(missionId) {
+  return { type: VALIDATE, id: missionId };
 }

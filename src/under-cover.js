@@ -14,7 +14,7 @@ class UnderCover extends connect(store)(LitElement) {
 
   constructor() {
     super();
-    this.players = ['Bob'];
+    this.players = [];
     this.game = undefined;
   }
 
@@ -24,12 +24,19 @@ class UnderCover extends connect(store)(LitElement) {
 
   startGame() {
     store.dispatch(createGame(this.players));
+    console.log('Game created!');
   }
 
   addFriend() {
     const newFriend = this.shadowRoot.querySelector('#friend-text-field').value;
     this.players = [...this.players, newFriend];
     this.shadowRoot.querySelector('#friend-text-field').value = '';
+  }
+
+  isFriendTextFieldEmpty() {
+    const friendField = this.shadowRoot.querySelector('#friend-text-field');
+    if (!friendField) return true;
+    return this.shadowRoot.querySelector('#friend-text-field').value.length === 0;
   }
 
   render() {
@@ -45,18 +52,26 @@ class UnderCover extends connect(store)(LitElement) {
             aria-placeholder="player name"
             aria-label="Player Name"
           ></vaadin-text-field>
+
           <vaadin-button @click=${this.addFriend}>+</vaadin-button>
         </div>
         <div class="friendsList">
-          <ul>
-            ${this.players.map(
-              player =>
-                html`
-                  <li>${player}</li>
-                `,
-            )}
-          </ul>
-          <vaadin-button @click=${this.startGame}>Create Game!</vaadin-button>
+          ${this.players.length === 0
+            ? html`
+                <p>No players added yet!</p>
+                <vaadin-button @click=${this.startGame} disabled>Create Game!</vaadin-button>
+              `
+            : html`
+                <ul>
+                  ${this.players.map(
+                    player =>
+                      html`
+                        <li>${player}</li>
+                      `,
+                  )}
+                </ul>
+                <vaadin-button @click=${this.startGame}>Create Game!</vaadin-button>
+              `}
         </div>
       </div>
     `;

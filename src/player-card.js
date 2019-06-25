@@ -7,7 +7,9 @@ import './mission-card';
 class PlayerCard extends LitElement {
   static get properties() {
     return {
-      player: { type: Object },
+      player: {
+        type: Object,
+      },
       areMissionsVisible: {
         type: Boolean,
       },

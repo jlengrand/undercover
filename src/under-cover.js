@@ -7,6 +7,8 @@ import './player-card';
 import '@vaadin/vaadin-button';
 import '@vaadin/vaadin-text-field';
 
+const ENTER_KEY = 13;
+
 class UnderCover extends connect(store)(LitElement) {
   static get properties() {
     return {
@@ -34,14 +36,18 @@ class UnderCover extends connect(store)(LitElement) {
   }
 
   addFriend() {
-    const newFriend = this.shadowRoot.querySelector('#friend-text-field').value;
-    this.players = [...this.players, newFriend];
-    this.shadowRoot.querySelector('#friend-text-field').value = '';
+    if (!this.isFriendTextFieldEmpty) {
+      const newFriend = this.shadowRoot.querySelector('#friend-text-field').value;
+      this.players = [...this.players, newFriend];
+      this.shadowRoot.querySelector('#friend-text-field').value = '';
+    }
   }
 
-  friendTextFieldUpdate() {
+  friendTextFieldUpdate(event) {
     const friendField = this.shadowRoot.querySelector('#friend-text-field');
     this.isFriendTextFieldEmpty = friendField.value.length === 0;
+
+    if (event.keyCode === ENTER_KEY) this.addFriend();
   }
 
   render() {

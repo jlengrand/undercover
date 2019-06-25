@@ -2,6 +2,7 @@ import { LitElement, html, css } from 'lit-element';
 import { connect } from 'pwa-helpers';
 import { store } from './game/gameStore';
 import { createGame, GameStatuses } from './game/gameActions';
+import './player-card';
 
 import '@vaadin/vaadin-button';
 import '@vaadin/vaadin-text-field';
@@ -11,6 +12,7 @@ class UnderCover extends connect(store)(LitElement) {
     return {
       players: { type: Array },
       isFriendTextFieldEmpty: { type: Boolean },
+      game: { type: Object },
     };
   }
 
@@ -23,7 +25,6 @@ class UnderCover extends connect(store)(LitElement) {
 
   stateChanged(state) {
     this.game = state.game;
-    this.requestUpdate(); // TODO: Can I get rid of this?
   }
 
   startGame() {
@@ -54,6 +55,12 @@ class UnderCover extends connect(store)(LitElement) {
               <div class="currentGame">
                 <p>Game ongoing!</p>
                 <p>${this.game}</p>
+                ${this.game.players.map(
+                  player =>
+                    html`
+                      <player-card .player=${player}></player-card>
+                    `,
+                )}
               </div>
             `
           : html`

@@ -44,57 +44,53 @@ class UnderCover extends connect(store)(LitElement) {
 
   render() {
     return html`
-      <div class="app">
-        <header class="app-header">
-          <img src="src/assets/logo.svg" class="app-logo" alt="logo" />
-          <h1 class="app-title">UnderCover</h1>
-        </header>
-        <main>
-          <div class="newGame">
-            <div class="intro">
-              <h1>UnderCover</h1>
-              <p>Get a challenge, kill your friends, win the game . . . during dinner!</p>
-            </div>
-            <div class="addFriends">
-              <h2>Add players</h2>
-              <vaadin-text-field
-                @keyup=${this.friendTextFieldUpdate}
-                id="friend-text-field"
-                aria-placeholder="player name"
-                aria-label="Player Name"
-              ></vaadin-text-field>
-
-              <vaadin-button @click=${this.addFriend} ?disabled=${this.isFriendTextFieldEmpty}
-                >+</vaadin-button
-              >
-            </div>
-            <div class="friendsList">
-              <h2>Current players</h2>
-              ${this.players.length === 0
-                ? html`
-                    <p>No players added yet!</p>
-                    <vaadin-button @click=${this.startGame} disabled>Create Game!</vaadin-button>
-                  `
-                : html`
-                    <ul>
-                      ${this.players.map(
-                        player =>
-                          html`
-                            <li>${player}</li>
-                          `,
-                      )}
-                    </ul>
-                    <vaadin-button @click=${this.startGame}>Create Game!</vaadin-button>
-                  `}
-            </div>
+      <header class="app-header">
+        <img src="src/assets/logo.svg" class="app-logo" alt="logo" />
+        <h1 class="app-title">UnderCover</h1>
+      </header>
+      <main>
+        <div class="newGame">
+          <div class="intro">
+            <h1>UnderCover</h1>
+            <p>Get a challenge, kill your friends, win the game . . . during dinner!</p>
           </div>
-        </main>
-        <footer>
-          <span
-            >Copyright 2019 - Axel Catoire and Julien Lengrand-Lambert - All rights reserved</span
-          >
-        </footer>
-      </div>
+          <div class="addFriends">
+            <h2>Add players</h2>
+            <vaadin-text-field
+              @keyup=${this.friendTextFieldUpdate}
+              id="friend-text-field"
+              aria-placeholder="player name"
+              aria-label="Player Name"
+            ></vaadin-text-field>
+
+            <vaadin-button @click=${this.addFriend} ?disabled=${this.isFriendTextFieldEmpty}
+              >+</vaadin-button
+            >
+          </div>
+          <div class="friendsList">
+            <h2>Current players</h2>
+            ${this.players.length === 0
+              ? html`
+                  <p>No players added yet!</p>
+                  <vaadin-button @click=${this.startGame} disabled>Create Game!</vaadin-button>
+                `
+              : html`
+                  <ul>
+                    ${this.players.map(
+                      player =>
+                        html`
+                          <li>${player}</li>
+                        `,
+                    )}
+                  </ul>
+                  <vaadin-button @click=${this.startGame}>Create Game!</vaadin-button>
+                `}
+          </div>
+        </div>
+      </main>
+      <footer>
+        <span>Copyright 2019 - Axel Catoire and Julien Lengrand-Lambert - All rights reserved</span>
+      </footer>
     `;
   }
 
@@ -105,7 +101,7 @@ class UnderCover extends connect(store)(LitElement) {
           font-size: 100%;
         }
 
-        .app {
+        :host {
           text-align: center;
           font-family: 'Josefin Sans', sans-serif;
           font-display: swap;

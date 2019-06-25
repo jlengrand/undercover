@@ -29,7 +29,7 @@ function createPlayer(user) {
 }
 
 export function createGame(userNames) {
-  if (!userNames || userNames.length === 0) return undefined;
+  if (!userNames || userNames.length < 2) return undefined;
 
   const users = userNames.map(name => createUser(name));
 

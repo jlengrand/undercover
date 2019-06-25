@@ -35,13 +35,18 @@ describe('gameCreator createGame', () => {
     expect(game).to.equal(undefined);
   });
 
+  it('should return undefined when there is only 1 players', () => {
+    const game = createGame(['Bob']);
+    expect(game).to.equal(undefined);
+  });
+
   it('should return undefined when there is no input', () => {
     const game = createGame();
     expect(game).to.equal(undefined);
   });
 
   it('should return an ONGOING game with an id', () => {
-    const game = createGame(['Bob']);
+    const game = createGame(['Bob', 'Gérald']);
     expect(game.status).to.equal(GameStatuses.ONGOING);
     expect(game.id).to.not.be.undefined;
   });

@@ -10,12 +10,14 @@ class UnderCover extends connect(store)(LitElement) {
   static get properties() {
     return {
       players: { type: Array },
+      isFriendTextFieldEmpty: { type: Boolean },
     };
   }
 
   constructor() {
     super();
     this.players = [];
+    this.isFriendTextFieldEmpty = true;
     this.game = undefined;
   }
 
@@ -38,6 +40,12 @@ class UnderCover extends connect(store)(LitElement) {
     const friendField = this.shadowRoot.querySelector('#friend-text-field');
     if (!friendField) return true;
     return this.shadowRoot.querySelector('#friend-text-field').value.length === 0;
+  }
+
+  friendTextFieldUpdate() {
+    const friendField = this.shadowRoot.querySelector('#friend-text-field');
+    this.isFriendTextFieldEmpty = friendField.value.length === 0;
+    console.log(this.isFriendTextFieldEmpty);
   }
 
   static get styles() {
@@ -119,12 +127,15 @@ class UnderCover extends connect(store)(LitElement) {
             <div class="addFriends">
               <h2>Add players</h2>
               <vaadin-text-field
+                @keyup=${this.friendTextFieldUpdate}
                 id="friend-text-field"
                 aria-placeholder="player name"
                 aria-label="Player Name"
               ></vaadin-text-field>
 
-              <vaadin-button @click=${this.addFriend}>+</vaadin-button>
+              <vaadin-button @click=${this.addFriend} ?disabled=${this.isFriendTextFieldEmpty}
+                >+</vaadin-button
+              >
             </div>
             <div class="friendsList">
               <h2>Current players</h2>

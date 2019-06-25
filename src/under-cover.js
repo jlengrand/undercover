@@ -117,6 +117,7 @@ class UnderCover extends connect(store)(LitElement) {
               <p>Get a challenge, kill your friends, win the game . . . during dinner!</p>
             </div>
             <div class="addFriends">
+              <h2>Add players</h2>
               <vaadin-text-field
                 id="friend-text-field"
                 aria-placeholder="player name"
@@ -126,6 +127,7 @@ class UnderCover extends connect(store)(LitElement) {
               <vaadin-button @click=${this.addFriend}>+</vaadin-button>
             </div>
             <div class="friendsList">
+              <h2>Current players</h2>
               ${this.players.length === 0
                 ? html`
                     <p>No players added yet!</p>

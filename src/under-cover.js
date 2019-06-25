@@ -24,6 +24,7 @@ class UnderCover extends connect(store)(LitElement) {
   }
 
   stateChanged(state) {
+    console.log('state changed');
     this.game = state.game;
   }
 

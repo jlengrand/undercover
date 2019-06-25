@@ -53,8 +53,6 @@ export function createGame(userNames) {
 export function validateMission(state, missionId) {
   // TODO: How do I make this immutable? This is the ugliest code I've written in a while
 
-  // TODO: Check if game is finished!?
-
   const newState = Object.assign({}, state);
 
   let playerId;
@@ -64,7 +62,11 @@ export function validateMission(state, missionId) {
     }
   });
 
-  if (!playerId) return state; // No mission match
+  if (!playerId) {
+    console.log('No player found with this mission');
+    // No mission match
+    return state;
+  }
 
   const missions = state.players.map(p => p.missions);
   const flattenedMissions = missions.reduce(

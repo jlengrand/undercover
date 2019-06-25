@@ -12,7 +12,7 @@ class MissionCard extends connect(store)(LitElement) {
     };
   }
 
-  validateMission() {
+  validateThisMission() {
     store.dispatch(validateMission(this.mission.id));
   }
 
@@ -23,9 +23,9 @@ class MissionCard extends connect(store)(LitElement) {
 
       ${this.mission.status === MissionStatuses.ACTIVE
         ? html`
-            <vaadin-button @click=${this.validateMission}>Validate mission!</vaadin-button>
+            <vaadin-button @click=${this.validateThisMission}>Validate mission!</vaadin-button>
           `
-        : html``};
+        : html``}
     `;
   }
 

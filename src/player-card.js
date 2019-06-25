@@ -53,6 +53,7 @@ class PlayerCard extends LitElement {
                       .id=${mission.id}
                       .targetId=${mission.targetId}
                       .status=${mission.status}
+                      .targetName=${mission.targetName}
                     ></mission-card>
                   `,
               )}

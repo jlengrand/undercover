@@ -23,6 +23,7 @@ class UnderCover extends connect(store)(LitElement) {
     this.players = [];
     this.isFriendTextFieldEmpty = true;
     this.game = undefined;
+    this.store = store;
   }
 
   stateChanged(state) {

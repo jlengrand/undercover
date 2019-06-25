@@ -11,6 +11,7 @@ class MissionCard extends connect(store)(LitElement) {
       challenge: { type: Object },
       status: { type: String },
       targetId: { type: String },
+      targetName: { type: String },
       id: { type: String },
     };
   }
@@ -23,6 +24,7 @@ class MissionCard extends connect(store)(LitElement) {
     return html`
       <div><span>Description:</span> ${this.challenge.description}</div>
       <div><span>Status</span> ${this.status}</div>
+      <div><span>Target</span> ${this.targetName}</div>
 
       ${this.status === MissionStatuses.ACTIVE
         ? html`

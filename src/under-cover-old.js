@@ -1,6 +1,5 @@
 import { LitElement, html, css } from 'lit-element';
 import { openWc } from './open-wc-logo';
-// import './game/gameRunner';
 
 class UnderCoverOld extends LitElement {
   static get properties() {

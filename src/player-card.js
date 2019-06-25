@@ -9,6 +9,9 @@ class PlayerCard extends LitElement {
     return {
       player: {
         type: Object,
+        hasChanged() {
+          return true;
+        },
       },
       areMissionsVisible: {
         type: Boolean,
@@ -45,7 +48,12 @@ class PlayerCard extends LitElement {
               ${this.player.missions.map(
                 mission =>
                   html`
-                    <mission-card .mission=${mission}></mission-card>
+                    <mission-card
+                      .challenge=${mission.challenge}
+                      .id=${mission.id}
+                      .targetId=${mission.targetId}
+                      .status=${mission.status}
+                    ></mission-card>
                   `,
               )}
             `

@@ -8,25 +8,26 @@ import { store } from './game/gameStore';
 class MissionCard extends connect(store)(LitElement) {
   static get properties() {
     return {
-      challenge: { type: Object },
-      status: { type: String },
-      targetId: { type: String },
-      targetName: { type: String },
-      id: { type: String },
+      mission: {
+        type: Object,
+        hasChanged() {
+          return true;
+        },
+      },
     };
   }
 
   validateThisMission() {
-    store.dispatch(validateMission(this.id));
+    store.dispatch(validateMission(this.mission.id));
   }
 
   render() {
     return html`
-      <div><span>Description:</span> ${this.challenge.description}</div>
-      <div><span>Status</span> ${this.status}</div>
-      <div><span>Target</span> ${this.targetName}</div>
+      <div><span>Description:</span> ${this.mission.challenge.description}</div>
+      <div><span>Status</span> ${this.mission.status}</div>
+      <div><span>Target</span> ${this.mission.targetName}</div>
 
-      ${this.status === MissionStatuses.ACTIVE
+      ${this.mission.status === MissionStatuses.ACTIVE
         ? html`
             <vaadin-button @click=${this.validateThisMission}>Validate mission!</vaadin-button>
           `

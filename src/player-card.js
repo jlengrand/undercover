@@ -48,13 +48,7 @@ class PlayerCard extends LitElement {
               ${this.player.missions.map(
                 mission =>
                   html`
-                    <mission-card
-                      .challenge=${mission.challenge}
-                      .id=${mission.id}
-                      .targetId=${mission.targetId}
-                      .status=${mission.status}
-                      .targetName=${mission.targetName}
-                    ></mission-card>
+                    <mission-card .mission=${mission}></mission-card>
                   `,
               )}
             `

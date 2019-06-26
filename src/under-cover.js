@@ -51,6 +51,91 @@ class UnderCover extends connect(store)(LitElement) {
     if (event.keyCode === ENTER_KEY) this.addFriend();
   }
 
+  renderGame() {
+    if (!this.game) return this.renderCreateNewGame();
+
+    if (this.game.status === GameStatuses.ONGOING) return this.renderOngoingGame();
+    if (this.game.status === GameStatuses.FINISHED) return this.renderFinishedGame();
+    if (this.game.status === GameStatuses.STOPPED) return this.renderStoppedGame();
+
+    return this.renderCreateNewGame();
+  }
+
+  renderFinishedGame() {
+    console.log(this.game);
+    return html`
+      <div class="finishedGame">
+        To be implemented
+      </div>
+    `;
+  }
+
+  renderStoppedGame() {
+    console.log(this.game);
+
+    return html`
+      <div class="stoppedGame">To be implemented</div>
+    `;
+  }
+
+  renderCreateNewGame() {
+    return html`
+      <div class="newGame">
+        <div class="intro">
+          <h1>UnderCover</h1>
+          <p>Get a challenge, kill your friends, win the game . . . during dinner!</p>
+        </div>
+        <div class="addFriends">
+          <h2>Add players</h2>
+          <vaadin-text-field
+            @keyup=${this.friendTextFieldUpdate}
+            id="friend-text-field"
+            aria-placeholder="player name"
+            aria-label="Player Name"
+          ></vaadin-text-field>
+
+          <vaadin-button @click=${this.addFriend} ?disabled=${this.isFriendTextFieldEmpty}
+            >+</vaadin-button
+          >
+        </div>
+        <div class="friendsList">
+          <h2>Current players</h2>
+          ${this.players.length === 0
+            ? html`
+                <p>No players added yet!</p>
+                <vaadin-button @click=${this.startGame} disabled>Create Game!</vaadin-button>
+              `
+            : html`
+                <ul>
+                  ${this.players.map(
+                    player =>
+                      html`
+                        <li>${player}</li>
+                      `,
+                  )}
+                </ul>
+                <vaadin-button @click=${this.startGame}>Create Game!</vaadin-button>
+              `}
+        </div>
+      </div>
+    `;
+  }
+
+  renderOngoingGame() {
+    return html`
+      <div class="currentGame">
+        <p>Game ongoing!</p>
+        <p>${this.game}</p>
+        ${this.game.players.map(
+          player =>
+            html`
+              <player-card .player=${player}></player-card>
+            `,
+        )}
+      </div>
+    `;
+  }
+
   render() {
     return html`
       <header class="app-header">
@@ -58,61 +143,7 @@ class UnderCover extends connect(store)(LitElement) {
         <h1 class="app-title">UnderCover</h1>
       </header>
       <main>
-        ${this.game && this.game.status === GameStatuses.ONGOING
-          ? html`
-              <div class="currentGame">
-                <p>Game ongoing!</p>
-                <p>${this.game}</p>
-                ${this.game.players.map(
-                  player =>
-                    html`
-                      <player-card .player=${player}></player-card>
-                    `,
-                )}
-              </div>
-            `
-          : html`
-              <div class="newGame">
-                <div class="intro">
-                  <h1>UnderCover</h1>
-                  <p>Get a challenge, kill your friends, win the game . . . during dinner!</p>
-                </div>
-                <div class="addFriends">
-                  <h2>Add players</h2>
-                  <vaadin-text-field
-                    @keyup=${this.friendTextFieldUpdate}
-                    id="friend-text-field"
-                    aria-placeholder="player name"
-                    aria-label="Player Name"
-                  ></vaadin-text-field>
-
-                  <vaadin-button @click=${this.addFriend} ?disabled=${this.isFriendTextFieldEmpty}
-                    >+</vaadin-button
-                  >
-                </div>
-                <div class="friendsList">
-                  <h2>Current players</h2>
-                  ${this.players.length === 0
-                    ? html`
-                        <p>No players added yet!</p>
-                        <vaadin-button @click=${this.startGame} disabled
-                          >Create Game!</vaadin-button
-                        >
-                      `
-                    : html`
-                        <ul>
-                          ${this.players.map(
-                            player =>
-                              html`
-                                <li>${player}</li>
-                              `,
-                          )}
-                        </ul>
-                        <vaadin-button @click=${this.startGame}>Create Game!</vaadin-button>
-                      `}
-                </div>
-              </div>
-            `}
+        ${this.renderGame()}
       </main>
       <footer>
         <span>Copyright 2019 - Axel Catoire and Julien Lengrand-Lambert - All rights reserved</span>

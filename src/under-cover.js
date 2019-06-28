@@ -1,11 +1,12 @@
 import { LitElement, html, css } from 'lit-element';
 import { connect } from 'pwa-helpers';
 import { store } from './game/gameStore';
-import { createGame, GameStatuses } from './game/gameActions';
+import { createGame, stopGame, GameStatuses } from './game/gameActions';
 import './player-card';
 
 import '@vaadin/vaadin-button';
 import '@vaadin/vaadin-text-field';
+import { sortScoresAndkills } from './game/playersMagic';
 
 const ENTER_KEY = 13;
 
@@ -36,6 +37,12 @@ class UnderCover extends connect(store)(LitElement) {
     console.log('Game created!');
   }
 
+  // eslint-disable-next-line class-methods-use-this
+  stopTheGame() {
+    store.dispatch(stopGame());
+    console.log('Game stopped!');
+  }
+
   addFriend() {
     if (!this.isFriendTextFieldEmpty) {
       const newFriend = this.shadowRoot.querySelector('#friend-text-field').value;
@@ -61,21 +68,32 @@ class UnderCover extends connect(store)(LitElement) {
     return this.renderCreateNewGame();
   }
 
-  renderFinishedGame() {
-    console.log(this.game);
+  renderStoppedOrFinishedGame(finishedOrStopped) {
+    const finalPlayers = sortScoresAndkills(this.game.players);
     return html`
-      <div class="finishedGame">
-        To be implemented
+      <div class="finishedorStoppedGame">
+        <p>The game is ${finishedOrStopped}!</p>
+        <p>Our players listed by order of points :</p>
+        <ul>
+          ${finalPlayers.map(
+            p =>
+              html`
+                <li>
+                  ${p.user.name} with ${p.score} points. ${this.printKills(p)}
+                </li>
+              `,
+          )}
+        </ul>
       </div>
     `;
   }
 
-  renderStoppedGame() {
-    console.log(this.game);
+  renderFinishedGame() {
+    return this.renderStoppedOrFinishedGame('finished');
+  }
 
-    return html`
-      <div class="stoppedGame">To be implemented</div>
-    `;
+  renderStoppedGame() {
+    return this.renderStoppedOrFinishedGame('stopped');
   }
 
   renderCreateNewGame() {
@@ -132,8 +150,25 @@ class UnderCover extends connect(store)(LitElement) {
               <player-card .player=${player}></player-card>
             `,
         )}
+        <vaadin-button @click=${this.stopTheGame}>Stop game early!</vaadin-button>
       </div>
     `;
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  printKills(player) {
+    // TODO : Improve to be more readable
+    if (player.score > 0)
+      return html`
+        ${player.user.name} player killed :
+        ${player.kills.map(
+          k =>
+            html`
+              ${k}
+            `,
+        )}
+      `;
+    return html``;
   }
 
   render() {

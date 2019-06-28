@@ -35,13 +35,18 @@ describe('gameCreator createGame', () => {
     expect(game).to.equal(undefined);
   });
 
+  it('should return undefined when there is only 1 players', () => {
+    const game = createGame(['Bob']);
+    expect(game).to.equal(undefined);
+  });
+
   it('should return undefined when there is no input', () => {
     const game = createGame();
     expect(game).to.equal(undefined);
   });
 
   it('should return an ONGOING game with an id', () => {
-    const game = createGame(['Bob']);
+    const game = createGame(['Bob', 'Gérald']);
     expect(game.status).to.equal(GameStatuses.ONGOING);
     expect(game.id).to.not.be.undefined;
   });
@@ -201,5 +206,121 @@ describe('gameEngine validateMission', () => {
     expect(validateMission(theStartingState2Players, validatedMissionId)).to.deep.equal(
       theExpectedEndState,
     );
+  });
+
+  it('should validate a mission for a valid mission id', () => {
+    const theExpectedMiddleState = {
+      id: 'd9de47a8-158f-455e-8f02-21ac5dd5e0c3',
+      players: [
+        {
+          id: '8717b0d5-8a1b-436a-947b-5efe94603e67',
+          user: undefined,
+
+          missions: [
+            {
+              challenge: undefined,
+              id: '3d656862-8bce-41ec-ad74-2b637c12ff26',
+              status: 'SUCCESS',
+              targetId: 'c594036a-511e-4977-97c2-f4e13952bbb7',
+            },
+            {
+              challenge: undefined,
+              id: 'b1c2a17f-3834-45ea-b3dd-30633c62b197',
+              status: 'ACTIVE',
+              targetId: '7d91288e-4808-48b6-b1ec-49ef3addb24f',
+            },
+          ],
+        },
+        {
+          id: 'c594036a-511e-4977-97c2-f4e13952bbb7',
+          user: undefined,
+          missions: [
+            {
+              challenge: undefined,
+              id: 'b1c2a17f-3834-45ea-b3dd-30633c62b197',
+              status: 'STOLEN',
+              targetId: '7d91288e-4808-48b6-b1ec-49ef3addb24f',
+            },
+          ],
+        },
+        {
+          id: '7d91288e-4808-48b6-b1ec-49ef3addb24f',
+          user: undefined,
+          missions: [
+            {
+              id: '865faaf3-eaae-41d0-96d3-7440f1cc604e',
+              status: 'ACTIVE',
+              challenge: undefined,
+              targetId: '8717b0d5-8a1b-436a-947b-5efe94603e67',
+            },
+          ],
+        },
+      ],
+      status: 'ONGOING',
+    };
+
+    expect(
+      validateMission(theStartingState3Players, '3d656862-8bce-41ec-ad74-2b637c12ff26'),
+    ).to.deep.equal(theExpectedMiddleState);
+
+    const theExpectedEndState = {
+      id: 'd9de47a8-158f-455e-8f02-21ac5dd5e0c3',
+      players: [
+        {
+          id: '8717b0d5-8a1b-436a-947b-5efe94603e67',
+          user: undefined,
+
+          missions: [
+            {
+              challenge: undefined,
+              id: '3d656862-8bce-41ec-ad74-2b637c12ff26',
+              status: 'SUCCESS',
+              targetId: 'c594036a-511e-4977-97c2-f4e13952bbb7',
+            },
+            {
+              challenge: undefined,
+              id: 'b1c2a17f-3834-45ea-b3dd-30633c62b197',
+              status: 'SUCCESS',
+              targetId: '7d91288e-4808-48b6-b1ec-49ef3addb24f',
+            },
+            {
+              id: '865faaf3-eaae-41d0-96d3-7440f1cc604e',
+              status: 'ACTIVE',
+              challenge: undefined,
+              targetId: '8717b0d5-8a1b-436a-947b-5efe94603e67',
+            },
+          ],
+        },
+        {
+          id: 'c594036a-511e-4977-97c2-f4e13952bbb7',
+          user: undefined,
+          missions: [
+            {
+              challenge: undefined,
+              id: 'b1c2a17f-3834-45ea-b3dd-30633c62b197',
+              status: 'STOLEN',
+              targetId: '7d91288e-4808-48b6-b1ec-49ef3addb24f',
+            },
+          ],
+        },
+        {
+          id: '7d91288e-4808-48b6-b1ec-49ef3addb24f',
+          user: undefined,
+          missions: [
+            {
+              id: '865faaf3-eaae-41d0-96d3-7440f1cc604e',
+              status: 'STOLEN',
+              challenge: undefined,
+              targetId: '8717b0d5-8a1b-436a-947b-5efe94603e67',
+            },
+          ],
+        },
+      ],
+      status: 'FINISHED',
+    };
+
+    expect(
+      validateMission(theExpectedMiddleState, 'b1c2a17f-3834-45ea-b3dd-30633c62b197'),
+    ).to.deep.equal(theExpectedEndState);
   });
 });

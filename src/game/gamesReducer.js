@@ -10,7 +10,7 @@ export default function gamesReducer(state = {}, action) {
     case CREATE:
       return createGame(action.users);
     case VALIDATE:
-      return validateMission(state, action.missionId); // TODO
+      return validateMission(state, action.missionId);
     default:
       return state;
   }

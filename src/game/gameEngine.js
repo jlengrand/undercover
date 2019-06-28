@@ -9,6 +9,7 @@ function createMission() {
     challenge: getRandomChallenge(),
     status: MissionStatuses.ACTIVE,
     targetId: undefined,
+    targetName: undefined,
   };
 }
 
@@ -29,18 +30,19 @@ function createPlayer(user) {
 }
 
 export function createGame(userNames) {
-  if (!userNames || userNames.length === 0) return undefined;
+  if (!userNames || userNames.length < 2) return undefined;
 
   const users = userNames.map(name => createUser(name));
 
   const players = users.map(user => createPlayer(user));
 
   // TODO : Improve so we don't need mutability
-  const targetIds = players.map(p => p.id);
-  targetIds.push(targetIds.shift());
+  const targetIdsAndUserNames = players.map(p => ({ id: p.id, name: p.user.name }));
+  targetIdsAndUserNames.push(targetIdsAndUserNames.shift());
 
   for (let i = 0; i < players.length; i += 1) {
-    players[i].missions[0].targetId = targetIds[i];
+    players[i].missions[0].targetId = targetIdsAndUserNames[i].id;
+    players[i].missions[0].targetName = targetIdsAndUserNames[i].name;
   }
 
   return {
@@ -53,18 +55,20 @@ export function createGame(userNames) {
 export function validateMission(state, missionId) {
   // TODO: How do I make this immutable? This is the ugliest code I've written in a while
 
-  // TODO: Check if game is finished!?
-
   const newState = Object.assign({}, state);
 
   let playerId;
   state.players.forEach(player => {
-    if (player.missions.some(m => m.id === missionId)) {
+    if (player.missions.some(m => m.id === missionId && m.status === MissionStatuses.ACTIVE)) {
       playerId = player.id;
     }
   });
 
-  if (!playerId) return state; // No mission match
+  if (!playerId) {
+    console.log('No player found with this mission');
+    // No mission match
+    return state;
+  }
 
   const missions = state.players.map(p => p.missions);
   const flattenedMissions = missions.reduce(

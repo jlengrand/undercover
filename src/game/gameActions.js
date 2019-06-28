@@ -28,5 +28,5 @@ export function createGame(listUsers) {
 }
 
 export function validateMission(missionId) {
-  return { type: VALIDATE, id: missionId };
+  return { type: VALIDATE, missionId };
 }
